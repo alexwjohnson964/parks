@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    form(action= `/`)
+          button Home
+    title All Lists
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="/stylesheets/home.css")
+
+  body
+    header
+      h1 All Lists
+    main
+      - let kinds = Object.keys(flash || {});
+      if kinds.length > 0
+        ul
+          each kind in kinds
+            each message in flash[kind]
+              li.flash(class=kind)= message
+      p=`Page ${pageNumber} of ${Math.ceil(allLists.length / 5)}`
+      - let ascending = true
+      ul
+        - let start = (Number(pageNumber) - 1) * 5
+        each list in allLists.slice(start, start + 5)
+          li.listPreview
+            a(href = `/lists/${list.id}/1` class = 'listPark') #{list.title} 
+
+      if pageNumber > 1
+        form(action= `/lists/all-lists/${Number(pageNumber) - 1}`)
+          button previous page
+      if start + 5 <= allLists.length - 1
+        form(action= `/lists/all-lists/${Number(pageNumber) + 1}`)
+          button Next Page
+
+      
+      

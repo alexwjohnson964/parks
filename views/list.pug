@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    form(action= `/`)
+          button Home
+    title=list.title
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="/stylesheets/home.css")
+
+  body
+    header
+      h1= list.title
+
+        
+    main
+      - let kinds = Object.keys(flash || {});
+      if kinds.length > 0
+        ul
+          each kind in kinds
+            each message in flash[kind]
+              li.flash(class=kind)= message
+      if list.parks.length > 0
+        p=`Page ${pageNumber} of ${list.parks.length == 1? 1 : Math.ceil(list.parks.length / 5)}`
+      - let ascending = true
+      ul.parkList
+        - let start = (Number(pageNumber) - 1) * 5
+        each park in list.parks.slice(start, start + 5)
+          li
+            a(href = `/parks/${park.id}` class = 'listPark') #{park.title} 
+            p.parkLocation=park.location
+            -let len = park.rating
+            while len > 0
+              span='★'
+              -len--
+            form(action= `/lists/edit/${list.id}/${park.id}` method= 'post')
+              button= `Remove` 
+      if pageNumber > 1
+        form(action= `/lists/${list.id}/${Number(pageNumber) - 1}`)
+          button Previous Page
+      if start + 5 <= list.parks.length - 1
+        form(action= `/lists/${list.id}/${Number(pageNumber) + 1}`)
+          button Next Page
+      form(action=`/lists/${list.id}/sort/` method="post")  
+        label(for= "sortBy") Sort By: 
+        select(name = 'sortBy' onchange= 'this.form.submit()')
+          option(value= 'title' selected= (sortBy === 'sortBy')) Title
+          option(value= 'location' selected= (sortBy === 'location')) Location
+      
+
+      br
+      form(action=`/lists/${list.id}/edit/` method="post") 
+        label(for="listTitle")
+        input(type="text" name = "listTitle" placeholder= 'list title')     
+        input(type="submit" value ="Rename List")
+      br
+      form(action=`/lists/${list.id}/delete/` method="post") 
+        button= `Delete List ${list.title == 'all' ? 'of all parks (Not Recommended)' : ''}`
+      
+      

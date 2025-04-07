@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Login
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="/stylesheets/home.css")
+
+  body
+    header
+      h1 Sign in
+    main
+      - let kinds = Object.keys(flash || {});
+      if kinds.length > 0
+        ul
+          each kind in kinds
+            each message in flash[kind]
+              li.flash(class=kind)= message
+      form(action=`/signin` method="post")
+        dl
+          dt
+            label(for="username") Username:
+          dd
+            input(type="text" name="username" placeholder="username" value=username)
+
+          dt
+            label(for="password") Password:
+          dd
+            input(type="password" name="password" placeholder="password")
+
+        fieldset.actions
+          input(type="submit" value="Sign In")
