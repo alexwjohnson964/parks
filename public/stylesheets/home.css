@@ -1,0 +1,87 @@
+.flash {
+  background-color: #cbe5f2;
+  color: #3399cc;
+  margin: 20px 0 1.5rem;
+  max-width: 1000px;
+  padding: 10px 20px;
+}
+
+.flash p {
+  font-size: 14px;
+  font-weight: bold;
+}
+label {
+  font-size:medium;
+}
+.flash.error {
+  background-color: #ffcfbf;
+  color: #ff6633;
+}
+
+.flash.success {
+  background-color: #cbf2e5;
+  color: #33cc99;
+}
+
+.parkListContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+ul.parkList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+  background-color: #dfebcd;
+  border-radius: 5px;
+  border-style: double;
+}
+body {
+  background-color: rgb(225, 250, 229);
+}
+.listPark {
+  display: grid;
+  margin: 5px;
+  font-size: large;
+}
+
+.parkLocation {
+  background-color:blanchedalmond;
+}
+.listLink {
+  display: block;
+  font-size: x-large;
+  border-radius: 2px;
+  background-color: #ffcfbf;
+  border-color: black;
+  border-style:outset;
+  padding: 2px;
+  margin: 4px;
+}
+.listPreview{
+  background-color: rgb(209, 249, 248);
+  border-style: solid;
+  border-width: 1px;
+}
+.flash {
+  background-color: #cbe5f2;
+  color: #3399cc;
+  margin: 20px 0 1.5rem;
+  max-width: 1000px;
+  padding: 10px 20px;
+}
+
+
+.flash p {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.flash.error {
+  background-color: #ffcfbf;
+  color: #ff6633;
+}
+
+.flash.success {
+  background-color: #cbf2e5;
+  color: #33cc99;
+}

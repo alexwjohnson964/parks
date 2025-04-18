@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title Home
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href=`${baseUrl}/stylesheets/home.css`)
+
+  body
+    header
+
+      h1 Home
+    main
+      - let kinds = Object.keys(flash || {});
+      if kinds.length > 0
+        ul
+          each kind in kinds
+            each message in flash[kind]
+              li.flash(class=kind)= message
+
+      if signedIn
+        ul
+          each list in lists.slice(0,5)
+            li(class='listPreview' id = list.title)
+              a(href = `lists/${list.id}/1` class = 'listLink') #{list.title}
+              if list.parks.length > 5
+                span=`Open list to view all ${list.parks.length} parks in this list.`
+              div(class = 'parkListContainer')
+              each park in list.parks.slice(0,5)
+              
+                a(href = `${baseUrl}/park/${park.id}` class = 'listPark') #{park.title}
+          if lists.length > 5
+            a(href = `/lists/all-lists/1`) View more lists
+                
+
+        form(action=`/lists/create/` method="get")  
+          input(type="submit" value ="Add New List")      
+
+        form(action=`/parks/create/` method="get")  
+          input(type="submit" value ="Add New Park")
+        form(action=`/signout` method="post")
+          fieldset.actions
+            input(type="submit" value="Sign Out")
+       
+      
+      

@@ -1,0 +1,71 @@
+.flash {
+  background-color: #cbe5f2;
+  color: #3399cc;
+  margin: 20px 0 1.5rem;
+  max-width: 1000px;
+  padding: 10px 20px;
+}
+
+.flash p {
+  font-size: 14px;
+  font-weight: bold;
+}
+label {
+  font-size:medium;
+}
+.flash.error {
+  background-color: #ffcfbf;
+  color: #ff6633;
+}
+
+.flash.success {
+  background-color: #cbf2e5;
+  color: #33cc99;
+}
+
+form.stars {
+  display: inline-block; 
+  margin: 0;            
+}
+
+
+form.stars button {
+  display: inline-block;
+  font-size: 25px; 
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+form.stars {
+  display: inline-block; 
+  background-color: rgb(246, 238, 228);
+  
+}
+form.stars.on button{
+  color: gold;
+}
+form.stars.off button{
+  color: grey;
+}
+form.stars.off button:hover{
+  color: rgb(234, 234, 154);
+}
+form.stars.on button:hover{
+  color: rgb(189, 189, 188);
+}
+body {
+  background-color: rgb(219, 247, 243);
+}
+textarea{
+  background-color: rgb(219, 247, 243);
+  border-style: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:medium;
+
+}
+textarea:hover {
+  background-color: rgb(255, 255, 255);
+  border-radius:0%;
+  font-family: monospace;
+}

@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title=`Create a new ${type}`
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href=`${baseUrl}/stylesheets/home.css`)
+
+  body
+    header
+      form(action= `${baseUrl}/`)
+        button Home
+      h1=`Add ${type}`
+    main
+      - let kinds = Object.keys(flash || {});
+      if kinds.length > 0
+        ul
+          each kind in kinds
+            each message in flash[kind]
+              li.flash(class=kind)= message
+      if signedIn
+        p=`Add a new ${type} with the form below. Entries must include alphabetic characters and spaces only.`
+        if type === 'list'
+          form(action=`${baseUrl}/lists/create/` method="post")  
+            label(for="listTitle")
+            input(type="text" name = "listTitle" placeholder= 'list title')    
+            br 
+            input(type="submit" value ="Add New List")
+        else if type ==='park'
+          form(action=`${baseUrl}/park/create/` method="post")  
+            label(for="parkTitle")
+            input(type="text" name = "parkTitle" value= parkTitle placeholder= 'park title') 
+            input(type="text" name = "parkLocation" value = parkLocation placeholder= 'park location')  
+            br  
+            input(type="submit" value ="Add New Park")
+            br
