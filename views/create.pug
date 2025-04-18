@@ -3,19 +3,11 @@ html
   head
     title=`Create a new ${type}`
     meta(charset="UTF-8")
-<<<<<<< HEAD
     link(rel="stylesheet" href=`${baseUrl}/stylesheets/home.css`)
 
   body
     header
       form(action= `${baseUrl}/`)
-=======
-    link(rel="stylesheet" href="/stylesheets/home.css")
-
-  body
-    header
-      form(action= `/`)
->>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
         button Home
       h1=`Add ${type}`
     main
@@ -28,21 +20,13 @@ html
       if signedIn
         p=`Add a new ${type} with the form below. Entries must include alphabetic characters and spaces only.`
         if type === 'list'
-<<<<<<< HEAD
           form(action=`${baseUrl}/lists/create/` method="post")  
-=======
-          form(action=`/lists/create/` method="post")  
->>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
             label(for="listTitle")
             input(type="text" name = "listTitle" placeholder= 'list title')    
             br 
             input(type="submit" value ="Add New List")
         else if type ==='park'
-<<<<<<< HEAD
           form(action=`${baseUrl}/park/create/` method="post")  
-=======
-          form(action=`/parks/create/` method="post")  
->>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
             label(for="parkTitle")
             input(type="text" name = "parkTitle" value= parkTitle placeholder= 'park title') 
             input(type="text" name = "parkLocation" value = parkLocation placeholder= 'park location')  
