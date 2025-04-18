@@ -3,11 +3,7 @@ html
   head
     title Login
     meta(charset="UTF-8")
-<<<<<<< HEAD
     link(rel="stylesheet" href=`${baseUrl}/stylesheets/home.css`)
-=======
-    link(rel="stylesheet" href="/stylesheets/home.css")
->>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
 
   body
     header
@@ -19,11 +15,7 @@ html
           each kind in kinds
             each message in flash[kind]
               li.flash(class=kind)= message
-<<<<<<< HEAD
       form(action=`${baseUrl}/signin` method="post")
-=======
-      form(action=`/signin` method="post")
->>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
         dl
           dt
             label(for="username") Username:
