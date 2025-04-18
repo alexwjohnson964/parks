@@ -3,11 +3,19 @@ html
   head
     title=park.title
     meta(charset="UTF-8")
+<<<<<<< HEAD
     link(rel="stylesheet" href=`${baseUrl}/stylesheets/park.css`)
 
   body
     header
       form(action= `${baseUrl}/`)
+=======
+    link(rel="stylesheet" href="/stylesheets/park.css")
+
+  body
+    header
+      form(action= `/`)
+>>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
         button Home 
     main
      
@@ -22,6 +30,7 @@ html
 
 
       p
+<<<<<<< HEAD
         form.stars(class=rating > 0 ? 'on' : 'off' action= `${baseUrl}/parks/${park.id}/edit-rating/1` method='post')
           button(type="submit") ★
         form.stars(class=rating > 1 ? 'on' : 'off' action= `${baseUrl}/parks/${park.id}/edit-rating/2` method='post')
@@ -31,18 +40,37 @@ html
         form.stars(class=rating > 3 ? 'on' : 'off' action= `${baseUrl}/parks/${park.id}/edit-rating/4` method='post')
           button(type="submit") ★
         form.stars(class=rating > 4 ? 'on' : 'off' action= `${baseUrl}/parks/${park.id}/edit-rating/5` method='post')
+=======
+        form.stars(class=rating > 0 ? 'on' : 'off' action= `/parks/${park.id}/edit-rating/1` method='post')
+          button(type="submit") ★
+        form.stars(class=rating > 1 ? 'on' : 'off' action= `/parks/${park.id}/edit-rating/2` method='post')
+          button(type="submit") ★
+        form.stars(class=rating > 2 ? 'on' : 'off' action= `/parks/${park.id}/edit-rating/3` method='post')
+          button(type="submit") ★
+        form.stars(class=rating > 3 ? 'on' : 'off' action= `/parks/${park.id}/edit-rating/4` method='post')
+          button(type="submit") ★
+        form.stars(class=rating > 4 ? 'on' : 'off' action= `/parks/${park.id}/edit-rating/5` method='post')
+>>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
           button(type="submit") ★
 
       h2 Add Park Notes 
    
+<<<<<<< HEAD
         form(action=`${baseUrl}/park/${park.id}/edit-notes/` method="post") 
+=======
+        form(action=`/parks/${park.id}/edit-notes/` method="post") 
+>>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
           label(for="parkNotes")
           textarea(name = "parkNotes" placeholder=notes?'':'add notes here' rows= '5' cols= '25')=notes?notes:' ' 
           br 
           input(type="submit" value ="Update Notes")
       br
       h2 Edit Park Data
+<<<<<<< HEAD
         form(action=`${baseUrl}/park/${park.id}/edit/` method="post") 
+=======
+        form(action=`/parks/${park.id}/edit/` method="post") 
+>>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
           label(for="parkTitle") Park Title:
           input(type="text" name = "parkTitle" value = parkTitle || park.title placeholder= 'park title')     
           label(for="parkLocation") Park Location:
@@ -53,10 +81,18 @@ html
         each list in lists 
           if list.title !== 'all' 
             li
+<<<<<<< HEAD
               form(action= `${baseUrl}/lists/edit/${list.id}/${park.id}` method= 'post') 
                 button= `${list.containsPark ? 'Remove from' : 'Add To'} ${list.title}`
         br      
         li
           form(action= `${baseUrl}/park/${park.id}/delete` method= 'post')
+=======
+              form(action= `/lists/edit/${list.id}/${park.id}` method= 'post') 
+                button= `${list.containsPark ? 'Remove from' : 'Add To'} ${list.title}`
+        br      
+        li
+          form(action= `/parks/${park.id}/delete` method= 'post')
+>>>>>>> 10c39d84da13070010e5368a87aeb4a6b0015827
               button= `Delete and Remove from All Lists`
       
